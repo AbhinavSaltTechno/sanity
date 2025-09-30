@@ -54,12 +54,15 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      subtitle:"slug.current",
       author: 'author.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {author,subtitle} = selection
+      console.log("sb",subtitle);
+      
+      return {...selection, subtitle: author && `slug ${subtitle} (by ${author})`}
     },
   },
 })

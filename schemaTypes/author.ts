@@ -4,11 +4,36 @@ export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
+  initialValue: () => ({
+        createdAt: new Date().toISOString(),
+      }),
   fields: [
     defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
+    }),
+    defineField({
+      name: 'nickname',
+      title: 'Nickname',
+      type: 'text',
+    }),
+    defineField({
+      name: 'website_url',
+      title: 'Website Url',
+      type: 'url',
+    }),
+    defineField({
+      title: 'Audthor Created At',
+      name: 'createdAt',
+      type: 'datetime',
+      description:"enter date",
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+        timeStep: 15,
+        displayTimeZone: 'India/Kolkata',
+      },
     }),
     defineField({
       name: 'slug',
